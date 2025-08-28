@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import RecipeCard from "./pages/RecipeCard"; // 👈 use RecipeCard instead of Home
+import RecipeCard from "./components/RecipeCard"; // 👈 Corrected path to components/RecipeCard
 
 function App() {
   const token = localStorage.getItem("token"); // JWT token stored after login
