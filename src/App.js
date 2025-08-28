@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Home from "./pages/Home";
+import RecipeCard from "./pages/RecipeCard"; // 👈 use RecipeCard instead of Home
 
 function App() {
   const token = localStorage.getItem("token"); // JWT token stored after login
@@ -10,30 +10,30 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Default route → if logged in go Home, else Login */}
+        {/* Default route → if logged in go RecipeCard, else Login */}
         <Route
           path="/"
-          element={isAuthenticated ? <Navigate to="/home" /> : <Navigate to="/login" />}
+          element={isAuthenticated ? <Navigate to="/recipes" /> : <Navigate to="/login" />}
         />
 
         <Route
           path="/login"
-          element={isAuthenticated ? <Navigate to="/home" /> : <Login />}
+          element={isAuthenticated ? <Navigate to="/recipes" /> : <Login />}
         />
 
         <Route
           path="/register"
-          element={isAuthenticated ? <Navigate to="/home" /> : <Register />}
+          element={isAuthenticated ? <Navigate to="/recipes" /> : <Register />}
         />
 
-        {/* Protected Home */}
+        {/* Protected RecipeCard */}
         <Route
-          path="/home"
-          element={isAuthenticated ? <Home /> : <Navigate to  ="/login" />}
+          path="/recipes"
+          element={isAuthenticated ? <RecipeCard /> : <Navigate to="/login" />}
         />
       </Routes>
     </Router>
   );
 }
 
-export default App;  
+export default App;
