@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import RecipeCard from "./components/RecipeCard"; // Correct path to components/RecipeCard
+import RecipeCard from "./components/RecipeCard";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -10,30 +10,24 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* If authenticated, redirect from login/register to recipes */}
+        {/* Root path → redirect depending on auth */}
         <Route
-          path="/login"
-          element={isAuthenticated ? <Navigate to="/recipes" /> : <Login />}
-        />
-        <Route
-          path="/register"
-          element={isAuthenticated ? <Navigate to="/recipes" /> : <Register />}
+          path="/"
+          element={<Navigate to={isAuthenticated ? "/recipes" : "/login"} />}
         />
 
-        {/* Protected route for RecipeCard */}
+        {/* Auth routes */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {/* Protected route */}
         <Route
           path="/recipes"
           element={isAuthenticated ? <RecipeCard /> : <Navigate to="/login" />}
-        />
-
-        {/* Default route for the root URL */}
-        <Route
-          path="/"
-          element={isAuthenticated ? <Navigate to="/recipes" /> : <Login />}
         />
       </Routes>
     </Router>
   );
 }
 
-export default App; 
+export default App;
