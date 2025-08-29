@@ -11,8 +11,6 @@ function App() {
   const isAuthenticated = !!token;
 
   return (
-    // The <Router> or <BrowserRouter> component is removed here.
-    // We only need the <Routes> and <Route> components.
     <Routes>
       <Route
         path="/"
