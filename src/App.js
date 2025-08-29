@@ -1,5 +1,5 @@
 // src/App.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -7,18 +7,26 @@ import RecipeCard from "./components/RecipeCard";
 import Profile from "./pages/Profile";
 
 function App() {
-  const token = localStorage.getItem("token");
-  const isAuthenticated = !!token;
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsAuthenticated(!!token);
+  }, []);
 
   return (
     <Routes>
       <Route
         path="/"
-        element={isAuthenticated ? <Navigate to="/recipes" /> : <Login />}
+        element={
+          isAuthenticated ? <Navigate to="/recipes" /> : <Login setIsAuthenticated={setIsAuthenticated} />
+        }
       />
       <Route
         path="/login"
-        element={isAuthenticated ? <Navigate to="/recipes" /> : <Login />}
+        element={
+          isAuthenticated ? <Navigate to="/recipes" /> : <Login setIsAuthenticated={setIsAuthenticated} />
+        }
       />
       <Route
         path="/register"

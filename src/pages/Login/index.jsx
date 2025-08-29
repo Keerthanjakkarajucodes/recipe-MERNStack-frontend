@@ -3,9 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import "./index.css";
 import API from "../../services/api.js";
 
- 
-
-const Login = () => {
+const Login = ({ setIsAuthenticated }) => {  // ✅ accept prop
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -23,14 +21,15 @@ const Login = () => {
     setMessage("");
 
     try {
-      //  axios request
       const { data } = await API.post("/users/login", formData);
 
-      // we DO use data here (for token), so no ESLint warning
       localStorage.setItem("token", data.token);
 
+      // ✅ update App.js state immediately
+      setIsAuthenticated(true);
+
       setMessage("Login successful");
-      navigate("/profile"); // redirect after login
+      navigate("/recipes"); // redirect to recipes after login
     } catch (error) {
       console.error("Error while logging in:", error);
       setMessage(error.response?.data?.message || "Login failed");
