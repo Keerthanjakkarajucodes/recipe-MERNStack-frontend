@@ -9,6 +9,7 @@ const Profile = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
 
+  // Fetch profile data
   useEffect(() => {
     const fetchProfile = async () => {
       try {
@@ -21,6 +22,7 @@ const Profile = () => {
     fetchProfile();
   }, []);
 
+  // Handle password change
   const handleChangePassword = async (e) => {
     e.preventDefault();
 
@@ -84,6 +86,17 @@ const Profile = () => {
               required
             />
             <button type="submit">Update Password</button>
+
+            {/* ✅ Success / Error message */}
+            {message && (
+              <p
+                className={`message ${
+                  message.toLowerCase().includes("success") ? "success" : "error"
+                }`}
+              >
+                {message}
+              </p>
+            )}
           </form>
         </div>
       </div>
@@ -92,8 +105,6 @@ const Profile = () => {
       <div className="logout">
         <button>Logout</button>
       </div>
-
-      {message && <p className="message">{message}</p>}
     </div>
   );
 };
