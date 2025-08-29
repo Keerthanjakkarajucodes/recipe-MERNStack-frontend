@@ -1,0 +1,123 @@
+/* Navbar wrapper */
+/* Navbar wrapper */
+.navbar {
+  background: linear-gradient(90deg, #34d399, #3b82f6);
+  padding: 12px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: fixed;   /* Sticks to very top */
+  top: 10px;         /* Add some spacing from very top */
+  left: 50%;         /* Center horizontally */
+  transform: translateX(-50%); /* Adjust centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  border-radius: 12px; /* Rounded edges */
+  z-index: 1000;
+}
+
+
+/* Navbar container */
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* logo left, links right */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  margin-left: 100px;
+}
+
+/* Navbar links */
+.navbar-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 50px;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-links a:hover {
+  color: #fef9c3;
+}
+
+/* Logout button */
+.logout-btn {
+  background: #ef4444;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 140px;
+  transition: all 0.2s ease-in-out;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+/* Mobile menu toggle (hamburger) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .navbar {
+    width: 90%;              /* Take almost full width */
+    top: 5px;                /* Less gap */
+    padding: 10px 15px;
+    border-radius: 10px;     /* Slightly smaller rounding */
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    background: linear-gradient(90deg, #34d399, #3b82f6);
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-links a,
+  .logout-btn {
+    justify-content: center;
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+
+/* Push page content below navbar */
+.page-content {
+  margin-top: 70px; /* adjust if navbar height changes */
+}
