@@ -1,22 +1,23 @@
+/* Container */
 .home-container {
   max-width: 1200px;
-  margin: 100px auto 40px auto; /* pushes below navbar */
-  padding: 20px;
+  margin: 0 auto;
+  padding: 100px 20px 40px 20px;
   text-align: center;
+  min-height: 100vh;
+  padding-top:80px;
+  background: linear-gradient(135deg, #6ee7b7, #3b82f6);
+  margin-top:400px;
 }
 
+/* Title */
 .page-title {
   font-size: 2.5rem;
-  margin-bottom: 10px;
-  color: #222;
-}
-
-.page-subtitle {
-  font-size: 1.2rem;
-  color: #555;
   margin-bottom: 20px;
+  color: #fff;
 }
 
+/* Button container */
 .create-btn-container {
   margin: 20px 0;
 }
@@ -29,25 +30,26 @@
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
-  margin-left: 100px;
 }
 
 .create-btn:hover {
   background: linear-gradient(45deg, #0072ff, #00c6ff);
 }
 
+/* Grid */
 .recipe-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* exactly 3 side by side */
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
   margin-top: 30px;
 }
 
+/* Card */
 .recipe-card {
-  background: white;
+  background: #ffffff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s;
   text-align: left;
 }
@@ -71,17 +73,59 @@
   color: #333;
 }
 
-.recipe-content p {
-  font-size: 0.9rem;
-  color: #444;
-  margin: 5px 0;
+/* Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
 }
 
-.recipe-content .desc {
-  font-size: 0.95rem;
-  color: #666;
-  margin-bottom: 10px;
+.update-btn,
+.delete-btn {
+  flex: 1;
+  margin: 0 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
 }
+
+.update-btn {
+  background: #facc15;
+  color: #222;
+}
+
+.update-btn:hover {
+  background: #eab308;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+/* If your navbar height is ~60px */
+.home-container {
+  padding: 80px 20px 20px;  /* 👈 Pushes content down below nav */
+}
+
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.page-subtitle {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #666;
+}
+
 
 /* Responsive */
 @media (max-width: 1024px) {

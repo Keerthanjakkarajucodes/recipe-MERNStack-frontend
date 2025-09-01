@@ -2,7 +2,7 @@
 /* Navbar wrapper */
 .navbar {
   background: linear-gradient(90deg, #34d399, #3b82f6);
-  padding: 12px 20px;
+  padding: 0px 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: fixed;   /* Sticks to very top */
   top: 10px;         /* Add some spacing from very top */
