@@ -100,11 +100,6 @@ const Profile = () => {
           </form>
         </div>
       </div>
-
-      {/* Logout Button */}
-      <div className="logout">
-        <button>Logout</button>
-      </div>
     </div>
   );
 };

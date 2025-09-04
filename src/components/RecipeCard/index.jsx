@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../../services/api.js";
 import "./index.css";
 
 const Home = () => {
@@ -14,9 +14,7 @@ const Home = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const { data } = await axios.get(
-          "https://recipe-project-backend-2.onrender.com/api/recipes"
-        );
+        const { data } = await API.get("/recipes"); 
         setRecipes(data);
       } catch (error) {
         console.error("Error fetching recipes:", error);
@@ -38,14 +36,9 @@ const Home = () => {
         return;
       }
 
-      await axios.delete(
-        `https://recipe-project-backend-2.onrender.com/api/recipes/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+    
+        await API.delete(`/recipes/${id}`);
+      
 
       setRecipes(recipes.filter((recipe) => recipe._id !== id));
       setSuccessMsg("🗑️ Recipe deleted successfully!");
