@@ -10,7 +10,7 @@ const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // ✅ Fetch Recipes
+ 
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
@@ -23,9 +23,9 @@ const Home = () => {
       }
     };
     fetchRecipes();
-  }, [location.state?.updated]); // <-- re-fetch after update
+  }, [location.state?.updated]); 
 
-  // ✅ Delete Recipe
+  
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this recipe?")) return;
 

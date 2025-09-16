@@ -6,7 +6,7 @@ import RecipeCard from "./components/RecipeCard";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import CreateRecipe from "./pages/CreateRecipe";
-import UpdateRecipe from "./pages/UpdateRecipe"; // ✅ import Update page
+import UpdateRecipe from "./pages/UpdateRecipe"; 
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

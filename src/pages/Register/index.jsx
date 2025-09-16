@@ -21,7 +21,7 @@ const Register = () => {
     });
   };
 
-  // ✅ Validation logic
+  
   const validateForm = () => {
     const { name, email, mobile, password } = formData;
 
@@ -29,20 +29,20 @@ const Register = () => {
       return "All fields are required.";
     }
 
-    // Mobile must be exactly 10 digits
+    
     if (mobile.length !== 10 || isNaN(mobile)) {
       return "Mobile number must be exactly 10 digits.";
     }
 
-    // Password must have at least one letter and one number
+   
     let hasLetter = false;
     let hasNumber = false;
 
     for (let char of password) {
       if (isNaN(char)) {
-        hasLetter = true;   // It's a letter
+        hasLetter = true;   
       } else {
-        hasNumber = true;   // It's a number
+        hasNumber = true; 
       }
     }
 
@@ -50,15 +50,15 @@ const Register = () => {
       return "Password must contain both letters and numbers.";
     }
 
-    // Password minimum length
+    
     if (password.length < 6) {
       return "Password must be at least 6 characters long.";
     }
 
-    return null; // ✅ Means no error
+    return null; 
   };
 
-  // ✅ Submit handler
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -73,7 +73,7 @@ const Register = () => {
     setIsError(false);
 
     try {
-      // ✅ axios POST request
+     
     await API.post("/users/register", formData);
 
       setMessage("Registration successful!");

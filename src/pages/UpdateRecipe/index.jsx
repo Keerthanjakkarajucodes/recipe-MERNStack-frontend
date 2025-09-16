@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom"; // ✅ Import useLocation
-import API from "../../services/api.js"; // ✅ Import custom API instance
+import { useParams, useLocation, useNavigate } from "react-router-dom"; 
+import API from "../../services/api.js"; 
 import "./index.css";
 
 function UpdateRecipe() {
    const { id } = useParams();
   const navigate = useNavigate();
-  const location = useLocation(); // ✅ Get the location state
+  const location = useLocation(); 
 
   const [recipe, setRecipe] = useState({
    title: "",
@@ -20,9 +20,9 @@ function UpdateRecipe() {
   });
   const [message, setMessage] = useState("");
 
-  // ✅ Use the passed state instead of fetching
+  
   useEffect(() => {
-   if (location.state?.recipe) { // Check if a recipe was passed
+   if (location.state?.recipe) { 
    const { ingredients, steps, ...rest } = location.state.recipe;
    setRecipe({
      ...rest,
@@ -30,7 +30,7 @@ function UpdateRecipe() {
      instructions: steps?.join(" → ") || "",
    });  
    } else {
-  // Fallback: If no state, fetch the recipe
+  
    const fetchRecipe = async () => {
      try {
      const { data } = await API.get(`/recipes/${id}`);
@@ -51,7 +51,7 @@ function UpdateRecipe() {
    setRecipe({ ...recipe, [e.target.name]: e.target.value });
   };
 
-// ✅ Update recipe using API.put
+
  const handleSubmit = async (e) => {
    e.preventDefault();
    try {
@@ -61,7 +61,7 @@ function UpdateRecipe() {
    steps: recipe.instructions.split("→").map((s) => s.trim()),
    };
 
-   await API.put(`/recipes/${id}`, updatedRecipe); // ✅ Use API.put and remove headers
+   await API.put(`/recipes/${id}`, updatedRecipe); 
 
    setMessage("✅ Recipe updated successfully!");
    setTimeout(() => navigate("/", { state: { updated: true } }), 1200);

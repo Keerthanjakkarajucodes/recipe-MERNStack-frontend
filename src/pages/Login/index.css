@@ -1,4 +1,4 @@
-/* Container */
+
 .login-container {
   display: flex;
   justify-content: center;
@@ -9,7 +9,7 @@
   padding: 20px;
 }
 
-/* Form card */
+
 .login-form {
   background: #fff;
   padding: 25px 30px;
@@ -26,7 +26,7 @@
   color: #333;
 }
 
-/* Inputs */
+
 .login-form input {
   width: 100%;
   padding: 12px;
@@ -42,7 +42,7 @@
   border-color: #4a90e2;
 }
 
-/* Button */
+
 .login-form button {
   width: 100%;
   padding: 12px;
@@ -59,7 +59,7 @@
   background: #357abd;
 }
 
-/* Messages */
+
 .message {
   margin-top: 10px;
   font-size: 0.9rem;
@@ -73,7 +73,7 @@
   color: red;
 }
 
-/* Redirect text */
+
 .register-redirect {
   margin-top: 15px;
   font-size: 0.9rem;
@@ -84,7 +84,7 @@
   font-weight: 600;
 }
 
-/* Responsive */
+
 @media (max-width: 480px) {
   .login-form {
     padding: 20px;

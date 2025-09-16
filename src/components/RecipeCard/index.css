@@ -1,4 +1,4 @@
-/* Container */
+
 .home-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -10,14 +10,14 @@
   margin-top:400px;
 }
 
-/* Title */
+
 .page-title {
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: #fff;
 }
 
-/* Button container */
+
 .create-btn-container {
   margin: 20px 0;
 }
@@ -36,7 +36,7 @@
   background: linear-gradient(45deg, #0072ff, #00c6ff);
 }
 
-/* Grid */
+
 .recipe-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -44,7 +44,7 @@
   margin-top: 30px;
 }
 
-/* Card */
+
 .recipe-card {
   background: #ffffff;
   border-radius: 12px;
@@ -73,7 +73,7 @@
   color: #333;
 }
 
-/* Buttons */
+
 .action-buttons {
   display: flex;
   justify-content: space-between;
@@ -109,9 +109,10 @@
 .delete-btn:hover {
   background: #dc2626;
 }
-/* If your navbar height is ~60px */
+
+
 .home-container {
-  padding: 80px 20px 20px;  /* 👈 Pushes content down below nav */
+  padding: 80px 20px 20px;
 }
 
 .page-title {
@@ -127,7 +128,7 @@
 }
 
 
-/* Responsive */
+
 @media (max-width: 1024px) {
   .recipe-grid {
     grid-template-columns: repeat(2, 1fr);

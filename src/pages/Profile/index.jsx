@@ -9,7 +9,7 @@ const Profile = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  // Fetch profile data
+
   useEffect(() => {
     const fetchProfile = async () => {
       try {
@@ -22,7 +22,7 @@ const Profile = () => {
     fetchProfile();
   }, []);
 
-  // Handle password change
+  
   const handleChangePassword = async (e) => {
     e.preventDefault();
 

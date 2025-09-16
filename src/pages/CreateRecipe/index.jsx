@@ -17,7 +17,7 @@
       e.preventDefault();
 
       try {
-        const token = localStorage.getItem("token"); // saved during login
+        const token = localStorage.getItem("token"); 
         if (!token) {
           alert("You must be logged in to create a recipe.");
           return;
@@ -36,7 +36,7 @@
         await API.post("/recipes", recipeData)
 
         alert("✅ Recipe created successfully!");
-        navigate("/", { state: { created: true } }); // go back to Home
+        navigate("/", { state: { created: true } }); 
       } catch (error) {
         console.error("Error creating recipe:", error.response?.data || error.message);
         alert(error.response?.data?.message || "❌ Failed to create recipe. Please try again.");

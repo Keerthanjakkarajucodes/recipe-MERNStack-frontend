@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import "./index.css";
 import API from "../../services/api.js";
 
-const Login = ({ setIsAuthenticated }) => {  // ✅ accept prop
+const Login = ({ setIsAuthenticated }) => {  
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -25,11 +25,11 @@ const Login = ({ setIsAuthenticated }) => {  // ✅ accept prop
 
       localStorage.setItem("token", data.token);
 
-      // ✅ update App.js state immediately
+      
       setIsAuthenticated(true);
 
       setMessage("Login successful");
-      navigate("/recipes"); // redirect to recipes after login
+      navigate("/recipes"); 
     } catch (error) {
       console.error("Error while logging in:", error);
       setMessage(error.response?.data?.message || "Login failed");
